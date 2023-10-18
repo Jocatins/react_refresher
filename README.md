@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Understanding the Fundamentals in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- A refresher course
 
-## Available Scripts
+# useCallback
 
-In the project directory, you can run:
+The useCallback Hook only runs when one of its dependencies update.
 
-### `npm start`
+This can improve performance.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The useCallback and useMemo Hooks are similar.
+The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- One reason to use useCallback is to prevent a component from re-rendering unless its props have changed.
 
-### `npm test`
+`referential equality`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Every time a component re-renders, its functions get recreated. Because of this, the addTodo function has actually changed.
 
-### `npm run build`
+- To fix this, we can use the useCallback hook to prevent the function from being recreated unless necessary.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# useReducer
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The useReducer Hook is similar to the useState Hook.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+It allows for custom state logic.
 
-### `npm run eject`
+If you find yourself keeping track of multiple pieces of state that rely on complex logic, useReducer may be useful.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- The useReducer Hook returns the current stateand a dispatchmethod.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# useRef
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The useRef Hook allows you to persist values between renders.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+It can be used to store a mutable value that does not cause a re-render when updated.
 
-## Learn More
+It can be used to access a DOM element directly.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The useRef Hook can also be used to keep track of previous state values.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- useRef() only returns one item. It returns an Object called current.
 
-### Code Splitting
+# UseMemo Hook
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The React useMemo Hook returns a memoized value.
 
-### Analyzing the Bundle Size
+The useMemo Hook only runs when one of its dependencies update.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This can improve performance.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The useMemo Hook can be used to keep expensive, resource intensive functions from needlessly running.
