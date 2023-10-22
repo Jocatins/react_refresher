@@ -1,11 +1,11 @@
-import { useMemo } from "react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 const MemoHook = () => {
 	const [count, setCount] = useState(0);
 	const [todos, setTodos] = useState([]);
 
 	const calculation = useMemo(() => expensiveCalculation(count), [count]);
+	// const calculation = expensiveCalculation(count);
 
 	const increment = () => {
 		setCount((c) => c + 1);
