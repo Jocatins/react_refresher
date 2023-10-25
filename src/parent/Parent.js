@@ -5,7 +5,7 @@ export const Parent = () => {
 	return (
 		<>
 			<div>Parent</div>
-			<Child color="green" />
+			<Child color="blue" font="Georgia" />
 		</>
 	);
 };
